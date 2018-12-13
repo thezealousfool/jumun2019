@@ -1,4 +1,19 @@
 @import 'fonts';
-@import 'containers';
-@import 'nav';
-@import 'main';
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    text-align: center;
+
+    h1 {
+        font-size: 3em;
+        margin-bottom: 0;
+    }
+    h2 {
+        font-size: 2em;
+        font-weight: 300;
+    }
+}
