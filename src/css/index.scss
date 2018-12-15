@@ -40,16 +40,16 @@
     input[type="text"], textarea {
         width: 100%;
         margin-bottom: 0.8em;
-        border: 1px solid #2d2d2d;
-        border-radius: 5px;
+        border: 1px solid #8f8f8f;
+        border-radius: 3px;
     }
     .btn {
         font-size: 0.75em;
         margin: 20px;
         margin-top: 2em;
         margin-left: auto;
-        border-radius: 5px;
-        box-shadow: 1px 3px 5px #2d2d2d;
+        border-radius: 3px;
+        box-shadow: 0 3px 1px -2px #2d2d2d, 0 2px 2px 0 #3d3d3d, 0 1px 5px 0 #3f3f3f;
     }
     form {
         display: none;
