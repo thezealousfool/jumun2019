@@ -4,6 +4,7 @@ var deleg1_info = {};
 var deleg2_info = {};
 var preference1 = {};
 var preference2 = {};
+const firbase_base = "https://jumun2019-9c834.firebaseio.com/";
 
 var country_maps = {
     aippm: {
@@ -746,6 +747,148 @@ var country_maps = {
     },
 }
 
+function xhr(tries, data, url, s_callback, f_callback) {
+    if (tries > 0) {
+        var req = new XMLHttpRequest();
+        req.addEventListener("load", function(e) {
+            if (req.status === 200) {
+                s_callback();
+            } else {
+                xhr(--tries, data, url, s_callback, f_callback);
+            }
+        });
+        req.addEventListener("error", function(e) {
+            console.log("Error:", e);
+            xhr(--tries, data, url, s_callback, f_callback);
+        });
+        req.open("POST", url);
+        req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        var send_data = JSON.stringify(data);
+        req.send(send_data);
+    } else {
+        f_callback();
+    }
+}
+
+function send_firebase() {
+    const tries = 5;
+    var raw_success = null,
+        del1_accom = null,
+        del2_accom = null,
+        del1_food = null,
+        del2_food = null,
+        del1_merch = null,
+        del2_merch = null,
+        del_commit = null;
+    function check_done() {
+        if (raw_success != null && del1_accom != null && del2_accom != null && del1_food != null && del2_food != null && del1_merch != null && del2_merch != null && del_commit != null) {
+            var code = [];
+            raw_success ? code.push(1) : code.push(0);
+            del1_accom ? code.push(1) : code.push(0);
+            del2_accom ? code.push(1) : code.push(0);
+            del1_food ? code.push(1) : code.push(0);
+            del2_food ? code.push(1) : code.push(0);
+            del1_merch ? code.push(1) : code.push(0);
+            del2_merch ? code.push(1) : code.push(0);
+            del_commit ? code.push(1) : code.push(0);
+            var dcc = parseInt(code.join(''),2);
+            console.log("Database consistency code:", dcc, "(", code.join(''), ")");
+            if (dcc === 255) {
+                send_notif('s', 'Application successful!');
+            } else {
+                send_notif('e', 'Application Failed! (Error code: '+dcc+')');
+            }
+        }
+    }
+    xhr(tries, {
+        deleg1_info,
+        deleg2_info,
+        preference1,
+        preference2
+    }, firbase_base+"data_dump.json", function() { raw_success = true; check_done(); }, function() { raw_success = false; check_done(); });
+    if (deleg1_info.accom === "yes") {
+        xhr(tries, {
+            name: deleg1_info.name,
+            email: deleg1_info.email,
+            phone: deleg1_info.phone
+        }, firbase_base+"accom.json", function() { del1_accom = true; check_done(); }, function() { del1_accom = false; check_done(); });
+    } else { del1_accom = true; check_done(); }
+    if (deleg2_info.accom === "yes") {
+        xhr(tries, {
+            name: deleg2_info.name,
+            email: deleg2_info.email,
+            phone: deleg2_info.phone
+        }, firbase_base+"accom.json", function() { del2_accom = true; check_done(); }, function() { del2_accom = false; check_done(); });
+    } else { del2_accom = true; check_done(); }
+    if (deleg1_info.merch === "yes") {
+        xhr(tries, {
+            name: deleg1_info.name,
+            email: deleg1_info.email,
+            phone: deleg1_info.phone
+        }, firbase_base+"merch.json", function() { del1_merch = true; check_done(); }, function() { del1_merch = false; check_done(); });
+    } else { del1_merch = true; check_done(); }
+    if (deleg2_info.merch === "yes") {
+        xhr(tries, {
+            name: deleg2_info.name,
+            email: deleg2_info.email,
+            phone: deleg2_info.phone
+        }, firbase_base+"merch.json", function() { del2_merch = true; check_done(); }, function() { del2_merch = false; check_done(); });
+    } else { del2_merch = true; check_done(); }
+    if (deleg1_info.food === "veg") {
+        xhr(tries, {
+            name: deleg1_info.name,
+            email: deleg1_info.email,
+            phone: deleg1_info.phone,
+        }, firbase_base+"veg.json", function() { del1_food = true; check_done(); }, function() { del1_food = false; check_done(); });
+    } else if (deleg1_info.food === "nonveg") {
+        xhr(tries, {
+            name: deleg1_info.name,
+            email: deleg1_info.email,
+            phone: deleg1_info.phone,
+        }, firbase_base+"nonveg.json", function() { del1_food = true; check_done(); }, function() { del1_food = false; check_done(); });
+    } else { del1_food = true; check_done(); }
+    if (deleg2_info.food === "veg") {
+        xhr(tries, {
+            name: deleg2_info.name,
+            email: deleg2_info.email,
+            phone: deleg2_info.phone,
+        }, firbase_base+"veg.json", function() { del2_food = true; check_done(); }, function() { del2_food = false; check_done(); });
+    } else if (deleg2_info.food === "nonveg") {
+        xhr(tries, {
+            name: deleg2_info.name,
+            email: deleg2_info.email,
+            phone: deleg2_info.phone,
+        }, firbase_base+"nonveg.json", function() { del2_food = true; check_done(); }, function() { del2_food = false; check_done(); });
+    } else { del2_food = true; check_done(); }
+    if (!double_deleg) {
+        xhr(tries, {
+            name: deleg1_info.name,
+            email: deleg1_info.email,
+            phone: deleg1_info.phone,
+            experience: deleg1_info.exp,
+            preference1,
+            preference2
+        }, firbase_base+"single_deleg/"+preference1.committee+".json", function() { del_commit = true; check_done(); }, function() { del_commit = false; check_done(); });
+    } else {
+        xhr(tries, {
+            delegate1: {
+                name: deleg1_info.name,
+                email: deleg1_info.email,
+                phone: deleg1_info.phone,
+                experience: deleg1_info.exp,
+            },
+            delegate2: {
+                name: deleg2_info.name,
+                email: deleg2_info.email,
+                phone: deleg2_info.phone,
+                experience: deleg2_info.exp,
+            },
+            preference1,
+            preference2
+        }, firbase_base+"double_deleg/"+preference1.committee+".json", function() { del_commit = true; check_done(); }, function() { del_commit = false; check_done(); });
+    }
+}
+
 function expand(elem_id) {
     const elem = document.getElementById(elem_id);
     if (elem) {
@@ -1009,9 +1152,9 @@ function del_pref1_submit() {
         send_notif("e", "Please select "+document.getElementById("label_del_pref1_country2").innerHTML)
     } else {
         preference1 = {
-            committee1: commit,
-            committee1_country1: country1,
-            committee1_country2: country2
+            committee: commit,
+            country1: country1,
+            country2: country2
         }
         const next_commit = next_form['pref2_committee'];
         for (var i = next_commit.options.length-1; i >= 0; --i) {
@@ -1036,9 +1179,9 @@ function del_pref2_submit() {
         send_notif("e", "Please select "+document.getElementById("label_del_pref2_country2").innerHTML)
     } else {
         preference2 = {
-            committee2: commit,
-            committee2_country1: country1,
-            committee2_country2: country2
+            committee: commit,
+            country1: country1,
+            country2: country2
         }
         console.log("Send data to firebase", double_deleg ? "double_deleg" : "single_deleg", "database", {
             deleg1_info,
@@ -1046,6 +1189,7 @@ function del_pref2_submit() {
             preference1,
             preference2,
         });
+        send_firebase();
     }
     return false;
 }
