@@ -60,7 +60,18 @@
             <form name="del_pref2" action="" method="POST" onsubmit="return del_pref2_submit()">
                 {{ del.gen_pref('2') }}
             </form>
+            <form name="del_final" style="text-align: center;margin-bottom:4em;">
+                <img id="del_final_loader" src="/img/loader.svg" alt="">
+                <h1 id="del_final_message" style="font-weight: 400; color: #4caf50; display: none;">Application Successful!</h1>
+                <h1 id="del_final_error" style="font-weight: 400; color: #f44336; display: none;">Application Failed!</h1>
+            </div>
         </section>
     </section>
 </main>
+<div id="notify-list">
+    <div id="error-list">
+    </div>
+    <div id="success-list">
+    </div>
+</div>
 {% endblock %}

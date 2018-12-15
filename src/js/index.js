@@ -794,9 +794,13 @@ function send_firebase() {
             var dcc = parseInt(code.join(''),2);
             console.log("Database consistency code:", dcc, "(", code.join(''), ")");
             if (dcc === 255) {
-                send_notif('s', 'Application successful!');
+                document.getElementById("del_final_loader").style.display = 'none';
+                document.getElementById("del_final_message").style.display = 'block';
             } else {
-                send_notif('e', 'Application Failed! (Error code: '+dcc+')');
+                document.getElementById("del_final_loader").style.display = 'none';
+                const error_msg = document.getElementById("del_final_error");
+                error_msg.innerHTML = error_msg.innerHTML + "<small>(Error code: "+dcc+")</small>"
+                error_msg.style.display = 'block';
             }
         }
     }
@@ -923,6 +927,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function send_notif(type, message) {
     console.log(type, message);
+    var elem = document.createElement('div');
+    elem.innerHTML = message;
+    var list;
+    if (type == 's')
+        list = document.getElementById("success-list");
+    else
+        list = document.getElementById("error-list");
+    list.appendChild(elem);
+    window.setTimeout(function() {
+        elem.parentNode.removeChild(elem);
+    }, 2500);
 }
 
 function validate_name(name) {
@@ -1183,6 +1198,7 @@ function del_pref2_submit() {
             country1: country1,
             country2: country2
         }
+        swap_forms(this_form, document.forms["del_final"]);
         console.log("Send data to firebase", double_deleg ? "double_deleg" : "single_deleg", "database", {
             deleg1_info,
             deleg2_info,

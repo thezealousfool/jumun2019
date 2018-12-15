@@ -1,0 +1,30 @@
+#notify-list {
+    position: fixed;
+    width: 100%;
+    max-width: 500px;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+
+    #error-list, #success-list {
+        >div {
+            padding: 1em 0;
+            font-weight: 400;
+            &:not(:first-child) {
+                padding-top: 0;
+            }
+        }
+    }
+    #error-list {
+        >div {
+            background-color: #f44336;
+            color: white;
+        }
+    }
+    #success-list {
+        >div {
+            background-color: #4caf50;
+            color: white;
+        }
+    }
+}
