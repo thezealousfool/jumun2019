@@ -103,7 +103,7 @@ function swap_forms(form1, form2) {
         return;
     form1.style.display = 'none';
     form2.style.display = 'block';
-    window.scrollTo(0, form2.offsetTop);
+    window.scrollTo(0, document.getElementById('apply-sec').offsetTop);
 }
 
 function del_type_submit() {
