@@ -50,11 +50,15 @@
             {% import 'macros/delegations.njk' as del %}
             <form name="del1_info" action="" method="POST" onsubmit="return del1_info_submit()">
                 {{ del.gen_del_info('1') }}
-                <input class="btn" type="submit" value="Next">
             </form>
             <form name="del2_info" action="" method="POST" onsubmit="return del2_info_submit()">
                 {{ del.gen_del_info('2') }}
-                <input class="btn" type="submit" value="Next">
+            </form>
+            <form name="del_pref1" action="" method="POST" onsubmit="return del_pref1_submit()">
+                {{ del.gen_pref('1') }}
+            </form>
+            <form name="del_pref2" action="" method="POST" onsubmit="return del_pref2_submit()">
+                {{ del.gen_pref('2') }}
             </form>
         </section>
     </section>

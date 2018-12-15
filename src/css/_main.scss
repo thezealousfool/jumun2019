@@ -50,8 +50,14 @@ a {
      position: relative;
  }
 
-input[type="text"], textarea {
+input[type="text"], textarea, select {
     font-family: inherit;
     font-size: inherit;
     padding: 0.5em 0.75em;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
 }

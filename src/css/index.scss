@@ -37,11 +37,15 @@
     input[type="radio"] {
         margin-bottom: 1.5em;
     }
-    input[type="text"], textarea {
+    input[type="text"], textarea, select {
         width: 100%;
         margin-bottom: 0.8em;
         border: 1px solid #8f8f8f;
         border-radius: 3px;
+    }
+    select[disabled] {
+        background-color: #ededed;
+        border-color: #ededed;
     }
     .btn {
         font-size: 0.75em;
@@ -49,7 +53,7 @@
         margin-top: 2em;
         margin-left: auto;
         border-radius: 3px;
-        box-shadow: 0 3px 1px -2px #2d2d2d, 0 2px 2px 0 #3d3d3d, 0 1px 5px 0 #3f3f3f;
+        box-shadow: 0 3px 1px -2px #3d3d3d, 0 2px 2px 0 #4d4d4d, 0 1px 5px 0 #4f4f4f;
     }
     form {
         display: none;

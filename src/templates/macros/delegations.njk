@@ -27,4 +27,31 @@
 <label class="radio" for="del_{{number}}_ymerch">Yes</label>
 <input id="del_{{number}}_nmerch" type="radio" name="del_{{number}}_merch" value="no">
 <label class="radio" for="del_{{number}}_nmerch">No</label>
+<input class="btn" type="submit" value="Next">
+{% endmacro %}
+
+{% macro gen_country_pref(number, country_number) %}
+<label for="del_pref{{number}}_country{{country_number}}" id="label_del_pref{{number}}_country{{country_number}}">Preference {{country_number}}</label>
+<select id="del_pref{{number}}_country{{country_number}}" name="pref{{number}}_country{{country_number}}" disabled onchange="del_pref{{number}}_c{{country_number}}_change(this)">
+    <option value="" disabled selected></option>
+</select>
+{% endmacro %}
+
+{% macro gen_pref(number) %}
+<h3>Preference {{number}}</h3>
+<label for="del_pref{{number}}_comit">Committee</label>
+<select id="del_pref{{numer}}_comit" name="pref{{number}}_committee" onchange="del_pref{{number}}_change(this)">
+    <option value="" disabled selected></option>
+    <option value="disec">UNGA DISEC</option>
+    <option value="hcr">UNHCR</option>
+    <option value="aippm">AIPPM</option>
+    <option value="sfc">Seneca Falls Conference</option>
+    <option value="unctad">UNCTAD</option>
+    <option value="ip">IP</option>
+    <option value="unsc">UNSC</option>
+    <option value="asecs">ASECS</option>
+</select>
+{{ gen_country_pref(number, '1') }}
+{{ gen_country_pref(number, '2') }}
+<input class="btn" type="submit" value="Next">
 {% endmacro %}
