@@ -11,7 +11,12 @@ h1,h2,h3,h4 {
     font-size: 1.2em;
 
     @media screen and (max-width: 500px) {
-        font-size: 1em;
+        h1 {
+            font-size: 1.67em;
+        }
+        h2 {
+            font-size: 1.25em;
+        }
     }
     @media screen and (min-width: 900px) {
         font-size: 1.4em;
