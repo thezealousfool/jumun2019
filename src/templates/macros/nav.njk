@@ -1,7 +1,7 @@
 {% macro nav(name='h') %}
 {% set nav_active_class = 'nav-active' %}
 <nav id="nav">
-    <li><a {% if name == 'h' %}class="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Home</a></li>
+    <li><a {% if name == 'h' %}class="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/"{% endif %}>Home</a></li>
     <li id="abt-ul">
         <a href="javascript:void(0);" onclick="expand('abt-ul')">About</a>
         <ul>
@@ -29,7 +29,7 @@
     <li><a {% if name == 'cm' %}class="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Country Matrix</a></li>
     <li><a {% if name == 'sg' %}class="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Study Guides</a></li>
     <li><a {% if name == 'ltm' %}class="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Learn to MUN</a></li>
-    <li><a {% if name == 'apply' %}class="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Apply</a></li>
+    <li><a {% if name == 'apply' %}class="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/apply"{% endif %}>Apply</a></li>
     <li id="pay-ul">
         <a href="javascript:void(0);" onclick="expand('pay-ul')">Payment</a>
         <ul>

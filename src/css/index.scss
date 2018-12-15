@@ -1,4 +1,57 @@
 @import 'fonts';
 @import 'containers';
 @import 'nav';
+@import 'header';
 @import 'main';
+
+#uinfo {
+    >li {
+        margin-bottom: 1em;
+        padding-left: 0.3em;
+        >ul {
+            margin-top: 0.7em;
+        }
+    }
+
+    &,ul,ol {
+        padding-left: 1.1em;
+    }
+}
+
+#apply-sec {
+    max-width: 400px;
+    margin: auto;
+    display: block;
+    padding-top: 1.2em;
+
+    label{
+        font-size: 0.9em;
+        &::after {
+            content: '';
+            display: block;
+        }
+    }
+    p {
+        font-size: 0.9em;
+    }
+    input[type="radio"] {
+        margin-bottom: 1.5em;
+    }
+    input[type="text"], textarea {
+        width: 100%;
+        margin-bottom: 0.8em;
+        border: 1px solid #2d2d2d;
+        border-radius: 5px;
+    }
+    .btn {
+        font-size: 0.75em;
+        margin: 20px;
+        margin-top: 2em;
+        margin-left: auto;
+        border-radius: 5px;
+        box-shadow: 1px 3px 5px #2d2d2d;
+    }
+    form {
+        display: none;
+    }
+}

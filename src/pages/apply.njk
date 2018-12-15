@@ -1,0 +1,62 @@
+{% extends 'layout.njk' %}
+
+{% block title %}JUMUN 2019 | Home{% endblock %}
+
+{% block headmeta %}
+<link rel="stylesheet" href="/css/index.css">
+<script type="text/javascript" src="/js/index.js"></script>
+{% endblock %}
+
+{% block content %}
+{% import 'macros/nav.njk' as nav %}
+{{ nav.nav('apply') }}
+<main id="content">
+    {% include "partials/o_header.njk" %}
+    <section class="cl-10">
+        <h1>Useful Information</h1>
+        <ol id="uinfo">
+            <li>The Application fee is Rs. 1200 for Single Delegation and Rs. 2400 for Double Delegation.</li>
+            <li>The accomodation fees for JUMUN 2019 is Rs. 1500. (Transportation to and fro from accomodation will be provided)</li>
+            <li>Applicants are requested to kindly consult the matrices of committees (given in the next pages) before applying.For convenience it is also provided in the Delegate Application while choosing the preferred country/portfolio.</li>
+            <li>For the UNSC, the application fee is Rs. 600 for single delegates and Rs. 1200 for double delegates. There will be no cash prizes in this committee. However, if anyone is facing financial constraints in paying the nominal fee required for attending, they are encouraged to contact us for a possible waiver of the fee.</li>
+            <li>Delegate structure:
+                <ul>
+                    <li>DISEC - Single/Double delegation</li>
+                    <li>UNHCR - Single/Double delegation</li>
+                    <li>Seneca Falls Conference - Single/Double delegation</li>
+                    <li>UNCTAD - Single/Double delegation</li>
+                    <li>AIPPM - Single delegation</li>
+                    <li>UNSC - Single/Double delegation</li>
+                    <li>ASECS - Single delegation</li>
+                    <li>IP - Single delegation</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+    <section class="cl-10">
+        <h1>Apply</h1>
+        <noscript>
+            <h3>You need to have Javascript enabled for this form.</h3>
+        </noscript>
+        <section id="apply-sec">
+            <form name="del_type" action="" method="POST" onsubmit="return del_type_submit()">
+                <p>Applying as</p>
+                <input id="del_type_single" type="radio" name="del_type_opt" value="single">
+                <label class="radio" for="del_type_single">Single Delegation</label>
+                <input id="del_type_double" type="radio" name="del_type_opt" value="double">
+                <label class="radio" for="del_type_double">Double Delegation</label>
+                <input class="btn" type="submit" value="Next">
+            </form>
+            {% import 'macros/delegations.njk' as del %}
+            <form name="del1_info" action="" method="POST" onsubmit="return del1_info_submit()">
+                {{ del.gen_del_info('1') }}
+                <input class="btn" type="submit" value="Next">
+            </form>
+            <form name="del2_info" action="" method="POST" onsubmit="return del2_info_submit()">
+                {{ del.gen_del_info('2') }}
+                <input class="btn" type="submit" value="Next">
+            </form>
+        </section>
+    </section>
+</main>
+{% endblock %}

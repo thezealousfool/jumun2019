@@ -1,0 +1,30 @@
+{% macro gen_del_info(number) %}
+<h3 id="del_text">Delegate {{number}} Info</h3>
+<label for="del_{{number}}_name">Name</label>
+<input id="del_{{number}}_name" type="text" name="del_{{number}}_name">
+<br>
+<label for="del_{{number}}_email">Email</label>
+<input id="del_{{number}}_email" type="text" name="del_{{number}}_email">
+<br>
+<label for="del_{{number}}_phone">Phone</label>
+<input id="del_{{number}}_phone" type="text" name="del_{{number}}_phone">
+<br>
+<label for="del_{{number}}_exp">Previous MUN experience <small>(Optional)</small></label>
+<textarea id="del_{{number}}_exp" rows="3" name="del_{{number}}_exp"></textarea>
+<br>
+<p>Food preference</p>
+<input id="del_{{number}}_vfood" type="radio" name="del_{{number}}_food" value="veg">
+<label class="radio" for="del_{{number}}_vfood">Veg</label>
+<input id="del_{{number}}_nvfood" type="radio" name="del_{{number}}_food" value="nonveg">
+<label class="radio" for="del_{{number}}_nvfood">Non-Veg</label>
+<p>Avail accomodation</p>
+<input id="del_{{number}}_yaccom" type="radio" name="del_{{number}}_accom" value="yes">
+<label class="radio" for="del_{{number}}_yaccom">Yes</label>
+<input id="del_{{number}}_naccom" type="radio" name="del_{{number}}_accom" value="no">
+<label class="radio" for="del_{{number}}_naccom">No</label>
+<p>Avail JUMUN merchandise<br><small>(includes JUMUN 2019 official T-shirt, cost Rs. 250)</small></p>
+<input id="del_{{number}}_ymerch" type="radio" name="del_{{number}}_merch" value="yes">
+<label class="radio" for="del_{{number}}_ymerch">Yes</label>
+<input id="del_{{number}}_nmerch" type="radio" name="del_{{number}}_merch" value="no">
+<label class="radio" for="del_{{number}}_nmerch">No</label>
+{% endmacro %}

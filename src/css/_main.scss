@@ -5,6 +5,7 @@ html,body {
 
 * {
     box-sizing: border-box;
+    color: #2d2d2d;
 }
 
 a {
@@ -13,5 +14,44 @@ a {
 }
 
 #content {
-    margin-left: 15em;
+    margin-left: 17rem;
+    padding: 1.5em;
+
+    @media screen and (max-width: 870px) {
+        margin-left: 0;
+    }
+}
+
+.full-width {
+    position: relative;
+    width: calc(100% + 3em);
+    left: -1.5em;
+}
+
+ section {
+     margin: 3em 0;
+     h1 {
+         font-size: 2em;
+     }
+ }
+
+ .btn {
+     background-color: #561498;
+    font-weight: 400;
+    display: block;
+     color: white;
+     text-transform: uppercase;
+     padding: 0.8em 1.5em;
+     border: transparent;
+     border-radius: 3px;
+     outline: none;
+     appearance: none;
+     -webkit-appearance: none;
+     position: relative;
+ }
+
+input[type="text"], textarea {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.5em 0.75em;
 }
