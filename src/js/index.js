@@ -1037,7 +1037,7 @@ function validate_merch(o) {
 
 function validate_accom(o) {
     if (o === "") {
-        send_notif("e", "Please select if you need accomodation");
+        send_notif("e", "Please select if you need accommodation");
         return false;
     }
     return true;
