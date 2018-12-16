@@ -1,0 +1,23 @@
+{% extends 'layout.njk' %}
+
+{% block title %}JUMUN 2019 | ASCS{% endblock %}
+
+{% block content %}
+{% import 'macros/nav.njk' as nav %}
+{{ nav.nav('cascs') }}
+<main id="content">
+    {% include "partials/o_header.njk" %}
+    {% import 'macros/committees.njk' as commit %}
+    <div id="committees">
+        {{ commit.gen_commit_svg("Asian Security and Cooperation Summit", "ascs.svg", "#a87b2a") }}
+        <div id="committee-text">
+        <div class="cl-10">
+            <h1>Asian Security and Cooperation Summit</h1>
+            <p>
+Indian Prime Minister Narendra Modi led the strongest-ever line-up of ministers at Asia's premier defence summit. Shangri La Dialogue is one of the most exhilarating and thrilling committee, it demands your patience, skill and ability to deal with the kernel of policy and security of a Nation.Since its launch in 2002 the Dialogue has built confidence and fostered practical security cooperation, by facilitating easy communication and fruitful contact among the region’s most important defence and security policymakers.
+            </p>
+        </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

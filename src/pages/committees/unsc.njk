@@ -1,0 +1,24 @@
+{% extends 'layout.njk' %}
+
+{% block title %}JUMUN 2019 | UNSC{% endblock %}
+
+{% block content %}
+{% import 'macros/nav.njk' as nav %}
+{{ nav.nav('cunsc') }}
+<main id="content">
+    {% include "partials/o_header.njk" %}
+    {% import 'macros/committees.njk' as commit %}
+    <div id="committees">
+        {{ commit.gen_commit_svg("United Nations Security Council", "unsc.svg", "#0272b1") }}
+        <div id="committee-text">
+        <div class="cl-10">
+            <h1>United Nations Security Council</h1>
+            <h3>Agenda: Training on fundamentals of negotiation and simulation of UN Security Council</h3>
+            <p>
+The United Nations Security Council is the premier decision-making organ of what is considered the highest shrine of international diplomacy. Its powers include the establishment of peacekeepingoperations, the establishment of international sanctions, and the authorization of military action through Security Council resolutions; it is the only UN body with the authority to issue binding resolutions to member states. The Security Council held its first session on 17 January 1946.Originally tasked with the responsibility of maintaining peace and security of the world, the Security Council since the 1990s has dramatically expanded its activities to grapple with the social, political and technological changes.
+            </p>
+        </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
