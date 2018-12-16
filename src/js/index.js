@@ -4,6 +4,10 @@ var deleg1_info = {};
 var deleg2_info = {};
 var preference1 = {};
 var preference2 = {};
+var country_req = {
+    pref1: true,
+    pref2: true,
+};
 const firbase_base = "https://jumun2019-9c834.firebaseio.com/";
 
 var country_maps = {
@@ -94,50 +98,50 @@ var country_maps = {
             "Belize",
             "Benin",
             "Bhutan",
-            "Bolivia",
+            "Bolivia (Plurinational State of)",
             "Bosnia and Herzegovina",
             "Botswana",
             "Brazil",
-            "Brunei",
+            "Brunei Darussalam",
             "Bulgaria",
             "Burkina Faso",
-            "Burma (Myanmar)",
             "Burundi",
+            "Cabo Verde",
             "Cambodia",
             "Cameroon",
             "Canada",
-            "Cape Verde",
             "Central African Republic",
             "Chad",
             "Chile",
             "China",
             "Colombia",
             "Comoros",
-            "Congo, Rep. of",
-            "Congo, Dem. Rep. of",
+            "Congo",
             "Costa Rica",
-            "Côte d'Ivoire",
+            "Côte D'Ivoire",
             "Croatia",
             "Cuba",
             "Cyprus",
-            "Czech Republic3",
+            "Czech Republic",
+            "Democratic People's Republic of Korea",
+            "Democratic Republic of the Congo",
             "Denmark",
             "Djibouti",
             "Dominica",
             "Dominican Republic",
-            "East Timor4",
             "Ecuador",
             "Egypt",
             "El Salvador",
             "Equatorial Guinea",
             "Eritrea",
             "Estonia",
+            "Eswatini",
             "Ethiopia",
             "Fiji",
             "Finland",
             "France",
             "Gabon",
-            "Gambia",
+            "Gambia (Republic of The)",
             "Georgia",
             "Germany",
             "Ghana",
@@ -145,7 +149,7 @@ var country_maps = {
             "Grenada",
             "Guatemala",
             "Guinea",
-            "Guinea-Bissau",
+            "Guinea Bissau",
             "Guyana",
             "Haiti",
             "Honduras",
@@ -153,7 +157,7 @@ var country_maps = {
             "Iceland",
             "India",
             "Indonesia",
-            "Iran",
+            "Iran (Islamic Republic of)",
             "Iraq",
             "Ireland",
             "Israel",
@@ -164,11 +168,9 @@ var country_maps = {
             "Kazakhstan",
             "Kenya",
             "Kiribati",
-            "Korea, North",
-            "Korea, South",
             "Kuwait",
             "Kyrgyzstan",
-            "Laos",
+            "Lao People’s Democratic Republic",
             "Latvia",
             "Lebanon",
             "Lesotho",
@@ -177,7 +179,6 @@ var country_maps = {
             "Liechtenstein",
             "Lithuania",
             "Luxembourg",
-            "Macedonia",
             "Madagascar",
             "Malawi",
             "Malaysia",
@@ -188,13 +189,13 @@ var country_maps = {
             "Mauritania",
             "Mauritius",
             "Mexico",
-            "Micronesia",
-            "Moldova",
+            "Micronesia (Federated States of)",
             "Monaco",
             "Mongolia",
-            "Montenegro4, 6",
+            "Montenegro",
             "Morocco",
             "Mozambique",
+            "Myanmar",
             "Namibia",
             "Nauru",
             "Nepal",
@@ -215,15 +216,17 @@ var country_maps = {
             "Poland",
             "Portugal",
             "Qatar",
+            "Republic of Korea",
+            "Republic of Moldova",
             "Romania",
-            "Russia",
+            "Russian Federation",
             "Rwanda",
-            "St. Kitts and Nevis",
-            "St. Lucia",
-            "St. Vincent and the Grenadines",
+            "Saint Kitts and Nevis",
+            "Saint Lucia",
+            "Saint Vincent and the Grenadines",
             "Samoa",
             "San Marino",
-            "São Tomé and Príncipe",
+            "Sao Tome and Principe",
             "Saudi Arabia",
             "Senegal",
             "Serbia",
@@ -240,13 +243,13 @@ var country_maps = {
             "Sri Lanka",
             "Sudan",
             "Suriname",
-            "Swaziland",
             "Sweden",
             "Switzerland",
-            "Syria",
+            "Syrian Arab Republic",
             "Tajikistan",
-            "Tanzania",
             "Thailand",
+            "The former Yugoslav Republic of Macedonia",
+            "Timor-Leste",
             "Togo",
             "Tonga",
             "Trinidad and Tobago",
@@ -257,16 +260,17 @@ var country_maps = {
             "Uganda",
             "Ukraine",
             "United Arab Emirates",
-            "United Kingdom",
-            "United States",
+            "United Kingdom of Great Britain and Northern Ireland",
+            "United Republic of Tanzania",
+            "United States of America",
             "Uruguay",
             "Uzbekistan",
             "Vanuatu",
-            "Venezuela",
+            "Venezuela, Bolivarian Republic of",
             "Vietnam",
             "Yemen",
             "Zambia",
-            "Zimbabwe"
+            "Zimbabwe",
         ]
     },
     hcr: {
@@ -537,7 +541,7 @@ var country_maps = {
             "Tajikistan",
             "Ukraine",
             "United Arab Emirates",
-            "United Kingdom of Great Britain and",
+            "United Kingdom",
             "Turkey",
             "United Republic of Tanzania",
             "United States of America",
@@ -745,6 +749,33 @@ var country_maps = {
             "Zimbabwe",
         ]
     },
+    asecs: {
+        head: 'Portfolio',
+        countries: [
+            "Australia - Scott Morrison",
+            "Myanmar - Win Myint",
+            "Canada - Justin Trudeau",
+            "China - Xi Jinping",
+            "France - Emmanuel Macron",
+            "Germany - Angela Merkel",
+            "India - Narendra Modi",
+            "Japan - Shinzo Abe",
+            "Pakistan - Imran Khan",
+            "Malaysia - Mahathir Mohammed",
+            "UK - Theresa May",
+            "USA - Donald Trump",
+            "Vietnam - Nguyen Phu Trong",
+            "Russia - Vladimir Putin",
+            "Republic of Korea - Moon Jae-in",
+            "Singapore - Lee Hsien Loong",
+            "Thailand - Prayut Chan-o-cha",
+            "Sweden - Stefan Lofven (acting PM, will change)",
+            "Sri Lanka - Maithripala Sirisena",
+            "New Zealand - Jacinda Ardern",
+            "East Timor - Francisco Guterres",
+            "Philippines - Rodrigo Duterte",
+        ]
+    }
 }
 
 var only_single_deleg = ['aippm', 'unsc', 'asecs', 'ip', 'photo'];
@@ -1101,6 +1132,7 @@ function clear_options(selectbox) {
     for(var i = selectbox.options.length - 1 ; i > 0 ; i--) {
         selectbox.remove(i);
     }
+    selectbox.options[0].selected = true;
 }
 
 function add_options(selectbox, option_arr, skip) {
@@ -1131,14 +1163,23 @@ function populate_country_options(select, option_arr, skip) {
 function del_pref_n_change(select, n) {
     const select1 = document.getElementById('del_pref'+n+'_country1');
     const select2 = document.getElementById('del_pref'+n+'_country2');
-    rename_labels(
-        document.getElementById('label_del_pref'+n+'_country1'),
-        document.getElementById('label_del_pref'+n+'_country2'),
-        country_maps[select.value].head);
-    populate_country_options(
-        select1,
-        country_maps[select.value].countries);
+    if (select.value === 'ip-report' || select.value === 'ip-photo' || select.value === 'unsc') {
+        country_req['pref'+n] = false;
+        document.getElementById('label_'+'del_pref'+n+'_country1').style.display = 'none';
+        select1.style.display = 'none';
+        document.getElementById('label_'+'del_pref'+n+'_country2').style.display = 'none';
+        select2.style.display = 'none';
+    } else {
+        rename_labels(
+            document.getElementById('label_del_pref'+n+'_country1'),
+            document.getElementById('label_del_pref'+n+'_country2'),
+            country_maps[select.value].head);
+        populate_country_options(
+            select1,
+            country_maps[select.value].countries);
+    }
     select1.options[0].selected = true;
+    select2.options[0].selected = true;
     select2.disabled = true;
 }
 
@@ -1185,9 +1226,9 @@ function del_pref1_submit() {
     const country2 = this_form["pref1_country2"].value;
     if (commit === "") {
         send_notif("e", "Please select a committee");
-    } else if (country1 === "") {
+    } else if (country_req['pref1'] && country1 === "") {
         send_notif("e", "Please select "+document.getElementById("label_del_pref1_country1").innerHTML)
-    } else if (country2 === "") {
+    } else if (country_req['pref1'] && country2 === "") {
         send_notif("e", "Please select "+document.getElementById("label_del_pref1_country2").innerHTML)
     } else {
         preference1 = {
@@ -1216,9 +1257,9 @@ function del_pref2_submit() {
     const country2 = this_form["pref2_country2"].value;
     if (commit === "") {
         send_notif("e", "Please select a committee");
-    } else if (country1 === "") {
+    } else if (country_req['pref2'] && country1 === "") {
         send_notif("e", "Please select "+document.getElementById("label_del_pref2_country1").innerHTML)
-    } else if (country2 === "") {
+    } else if (country_req['pref2'] && country2 === "") {
         send_notif("e", "Please select "+document.getElementById("label_del_pref2_country2").innerHTML)
     } else {
         preference2 = {
