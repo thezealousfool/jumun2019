@@ -5,12 +5,10 @@
     <li id="abt-ul">
         <a href="javascript:void(0);" onclick="expand('abt-ul')">About</a>
         <ul>
-            <li><a {% if name == 'aj2' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>JUMUN 2019</a></li>
+            <li><a {% if name == 'aj2' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/about/jumun2019"{% endif %}>JUMUN 2019</a></li>
+            <li><a {% if name == 'ape' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/past-editions"{% endif %}>Past Editions</a></li>
             <li><a {% if name == 'aoc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Organising Committee</a></li>
-            <li><a {% if name == 'ajtty' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>JUDS Throughout the years</a></li>
-            <li><a {% if name == 'aohc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Oh Calcutta!</a></li>
-            <li><a {% if name == 'awwd' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>What we do</a></li>
-            <li><a {% if name == 'ajr' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>JUMUN review</a></li>
+            <li><a {% if name == 'ajr' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/jumun-review"{% endif %}>JUMUN review</a></li>
         </ul>
     </li>
     <li id="comit-ul">
@@ -26,7 +24,7 @@
             <li><a {% if name == 'cascs' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/ascs"{% endif %}>ASCS</a></li>
         </ul>
     </li>
-    <li><a {% if name == 'cm' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Country Matrix</a></li>
+    <li><a {% if name == 'mat' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/matrices"{% endif %}>Matrices</a></li>
     <li><a {% if name == 'sg' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Study Guides</a></li>
     <li><a {% if name == 'ltm' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Learn to MUN</a></li>
     <li><a {% if name == 'apply' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/apply"{% endif %}>Apply</a></li>
