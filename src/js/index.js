@@ -1170,6 +1170,11 @@ function del_pref_n_change(select, n) {
         document.getElementById('label_'+'del_pref'+n+'_country2').style.display = 'none';
         select2.style.display = 'none';
     } else {
+        country_req['pref'+n] = true;
+        document.getElementById('label_'+'del_pref'+n+'_country1').style.display = 'block';
+        select1.style.display = 'block';
+        document.getElementById('label_'+'del_pref'+n+'_country2').style.display = 'block';
+        select2.style.display = 'block';
         rename_labels(
             document.getElementById('label_del_pref'+n+'_country1'),
             document.getElementById('label_del_pref'+n+'_country2'),
