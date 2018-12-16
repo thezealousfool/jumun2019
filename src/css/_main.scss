@@ -29,7 +29,7 @@ a {
 }
 
  section {
-     margin: 3em 0;
+     margin: 6em 0 0 0;
      h1 {
          font-size: 2em;
      }
@@ -48,6 +48,10 @@ a {
      appearance: none;
      -webkit-appearance: none;
      position: relative;
+ }
+
+ .underline {
+     border-bottom: 1px solid black;
  }
 
 input[type="text"], textarea, select {
