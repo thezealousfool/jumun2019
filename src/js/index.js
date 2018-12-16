@@ -747,6 +747,8 @@ var country_maps = {
     },
 }
 
+var only_single_deleg = ['aippm', 'unsc', 'asecs', 'ip', 'photo'];
+
 function xhr(tries, data, url, s_callback, f_callback) {
     if (tries > 0) {
         var req = new XMLHttpRequest();
@@ -869,6 +871,7 @@ function send_firebase() {
             name: deleg1_info.name,
             email: deleg1_info.email,
             phone: deleg1_info.phone,
+            institution: deleg1_info.inst,
             experience: deleg1_info.exp,
             preference1,
             preference2
@@ -879,12 +882,14 @@ function send_firebase() {
                 name: deleg1_info.name,
                 email: deleg1_info.email,
                 phone: deleg1_info.phone,
+                institution: deleg1_info.inst,
                 experience: deleg1_info.exp,
             },
             delegate2: {
                 name: deleg2_info.name,
                 email: deleg2_info.email,
                 phone: deleg2_info.phone,
+                institution: deleg2_info.inst,
                 experience: deleg2_info.exp,
             },
             preference1,
@@ -945,6 +950,14 @@ function validate_name(name) {
         return true;
     }
     send_notif("e", "Please enter name");
+    return false;
+}
+
+function validate_inst(inst) {
+    if (inst !== "") {
+        return true;
+    }
+    send_notif("e", "Please enter institution name");
     return false;
 }
 
@@ -1030,14 +1043,16 @@ function del1_info_submit() {
     const name = this_form["del_1_name"].value;
     const email = this_form["del_1_email"].value;
     const phone = this_form["del_1_phone"].value;
+    const inst = this_form["del_1_inst"].value;
     const food = this_form["del_1_food"].value;
     const accom = this_form["del_1_accom"].value;
     const merch = this_form["del_1_merch"].value;
-    if (validate_name(name) && validate_email(email) && validate_phone(phone) && validate_food(food) && validate_accom(accom) && validate_merch(merch)) {
+    if (validate_name(name) && validate_email(email) && validate_phone(phone) && validate_inst(inst) && validate_food(food) && validate_accom(accom) && validate_merch(merch)) {
         deleg1_info = {
             name,
             email,
             phone,
+            inst,
             exp: this_form["del_1_exp"].value,
             food,
             accom,
@@ -1056,19 +1071,28 @@ function del2_info_submit() {
     const name = this_form["del_2_name"].value;
     const email = this_form["del_2_email"].value;
     const phone = this_form["del_2_phone"].value;
+    const inst = this_form["del_2_inst"].value;
     const food = this_form["del_2_food"].value;
     const accom = this_form["del_2_accom"].value;
     const merch = this_form["del_2_merch"].value;
-    if (validate_name(name) && validate_email(email) && validate_phone(phone) && validate_food(food) && validate_accom(accom) && validate_merch(merch)) {
+    if (validate_name(name) && validate_email(email) && validate_phone(phone) && validate_inst(inst) && validate_food(food) && validate_accom(accom) && validate_merch(merch)) {
         deleg2_info = {
             name,
             email,
             phone,
+            inst,
             exp: this_form["del_2_exp"].value,
             food,
             accom,
             merch };
-        swap_forms(this_form, document.forms['del_pref1']);
+        const next_form = document.forms['del_pref1'];
+        const next_commit = next_form['pref1_committee'];
+        for (var i = next_commit.options.length-1; i > 0; --i) {
+            if (only_single_deleg.indexOf(next_commit.options[i].value) >= 0) {
+                next_commit.options[i].style.display = 'none';
+            }
+        }
+        swap_forms(this_form, next_form);
     }
     return false;
 }
@@ -1173,8 +1197,12 @@ function del_pref1_submit() {
         }
         const next_commit = next_form['pref2_committee'];
         for (var i = next_commit.options.length-1; i >= 0; --i) {
-            if (next_commit.options[i].value === commit)
+            if (next_commit.options[i].value === commit) {
                 next_commit.options[i].style.display = 'none';
+            }
+            if (double_deleg && only_single_deleg.indexOf(next_commit.options[i].value) >= 0) {
+                next_commit.options[i].style.display = 'none';
+            }
         }
         swap_forms(this_form, next_form);
     }
