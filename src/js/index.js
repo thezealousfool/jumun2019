@@ -778,7 +778,7 @@ var country_maps = {
     }
 }
 
-var only_single_deleg = ['aippm', 'unsc', 'asecs', 'ip', 'photo'];
+var only_single_deleg = ['aippm', 'unsc', 'asecs', 'ip-report', 'ip-photo'];
 
 function xhr(tries, data, url, s_callback, f_callback) {
     if (tries > 0) {

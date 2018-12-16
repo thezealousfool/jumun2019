@@ -1,0 +1,35 @@
+#committees {
+
+    .commit-card {
+        margin: auto;
+        margin-top: 4em;
+        margin-bottom: 4em;
+        max-width: 1200px;
+        position: relative;
+
+        svg {
+        }
+        h2 {
+            position: absolute;
+            font-weight: 400;
+            font-size: 1.8rem;
+            right: 1em;
+            bottom: 10px;
+            text-align: right;
+            color: white;
+            width: 45%;
+            max-width: 500px;
+            white-space: nowrap;
+            @media screen and (max-width: 750px), screen and (min-width: 870px) and (max-width: 1024px) {
+                display: block;
+                position: static;
+                width: 100%;
+                max-width: none;
+                background-color: #262626;
+                margin: 0;
+                margin-top: -6vw;
+                padding: 1em;
+            }
+        }
+    }
+}

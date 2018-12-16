@@ -1,4 +1,11 @@
-{% macro gen_commit_card(link, img, color) %}
-<div class="commit-card">
-</div>
+{% macro gen_commit_card(name, link, img, color) %}
+<a href="{{link}}">
+    <div class="commit-card">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" alt="{{name}} logo" viewBox="0 0 710 363">
+            <use xlink:href="/img/{{img}}#logo" x="100" y="-50" width="250" fill="{{color}}"/>
+            <use xlink:href="/img/wave.svg#wave" x="0" y="50" fill="{{color}}"/>
+        </svg>
+        <h2>{{name | safe}}</h2>
+    </div>
+</a>
 {% endmacro %}
