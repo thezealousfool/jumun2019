@@ -1,0 +1,23 @@
+{% extends 'layout.njk' %}
+
+{% block title %}JUMUN 2019 | IP{% endblock %}
+
+{% block content %}
+{% import 'macros/nav.njk' as nav %}
+{{ nav.nav('cdisec') }}
+<main id="content">
+    {% include "partials/o_header.njk" %}
+    {% import 'macros/committees.njk' as commit %}
+    <div id="committees">
+        {{ commit.gen_commit_svg("International Press", "ip.svg", "#00afae") }}
+        <div id="committee-text">
+        <div class="cl-10">
+            <h1>International Press</h1>
+            <p>
+Press has come a long way in advocating the fundamental right of freedom of expression. International Press is integral for the world because it is a primary source for exchange of information that disregards all borders. Media has developed over the years and now it is imperative to help us know what is happening around us. We form our opinions based on the information we receive from the press, for we all know that we cannot take a stand without a proper assessment of the situation.
+            </p>
+        </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
