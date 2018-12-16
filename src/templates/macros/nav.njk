@@ -16,14 +16,14 @@
     <li id="comit-ul">
         <a href="javascript:void(0);" onclick="expand('comit-ul')">Committees</a>
         <ul>
-            <li><a {% if name == 'cdisec' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>DISEC</a></li>
-            <li><a {% if name == 'cecosoc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>ECOSOC</a></li>
-            <li><a {% if name == 'cipcc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>IPCC</a></li>
-            <li><a {% if name == 'cunw' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>UNW</a></li>
-            <li><a {% if name == 'cls' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>LS</a></li>
-            <li><a {% if name == 'cunsc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>UNSC</a></li>
-            <li><a {% if name == 'cdexeu' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>DExEU</a></li>
-            <li><a {% if name == 'cip' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>IP</a></li>
+            <li><a {% if name == 'cdisec' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/disec"{% endif %}>DISEC</a></li>
+            <li><a {% if name == 'cip' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/ip"{% endif %}>IP</a></li>
+            <li><a {% if name == 'caippm' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/aippm"{% endif %}>AIPPM</a></li>
+            <li><a {% if name == 'csfc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/sfc"{% endif %}>SFC</a></li>
+            <li><a {% if name == 'chcr' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/hcr"{% endif %}>HCR</a></li>
+            <li><a {% if name == 'cunsc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/unsc"{% endif %}>UNSC</a></li>
+            <li><a {% if name == 'cctad' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/ctad"{% endif %}>CTAD</a></li>
+            <li><a {% if name == 'cascs' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/ascs"{% endif %}>ASCS</a></li>
         </ul>
     </li>
     <li><a {% if name == 'cm' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Country Matrix</a></li>

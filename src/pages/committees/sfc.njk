@@ -1,0 +1,24 @@
+{% extends 'layout.njk' %}
+
+{% block title %}JUMUN 2019 | SFC{% endblock %}
+
+{% block content %}
+{% import 'macros/nav.njk' as nav %}
+{{ nav.nav('csfc') }}
+<main id="content">
+    {% include "partials/o_header.njk" %}
+    {% import 'macros/committees.njk' as commit %}
+    <div id="committees">
+        {{ commit.gen_commit_svg("Seneca Falls Conference", "sfc.svg", "#f98f21") }}
+        <div id="committee-text">
+        <div class="cl-10">
+            <h1>Seneca Falls Conference</h1>
+            <h3>Agenda: Economic empowerment of women, with special focus on workplace gender perspective and involvement of women in government.</h3>
+            <p>
+The American women's rights movement began with a meeting of reformers in Seneca Falls, New York, in 1848. Out of that first convention came a historic document, the 'Declaration of Sentiments,' which demanded equal social status and legal rights for women, including the right to vote. With this historical achievement and vision in mind; Jadavpur University Model United Nations, brings to you a committee that can stir you to the core, a committee that lives and breathes for a cause, a committee for the equity, tolerance and empowerment in you, a committee for people all over the world - Seneca Falls Conference.
+            </p>
+        </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

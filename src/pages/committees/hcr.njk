@@ -1,0 +1,25 @@
+{% extends 'layout.njk' %}
+
+{% block title %}JUMUN 2019 | HCR{% endblock %}
+
+{% block content %}
+{% import 'macros/nav.njk' as nav %}
+{{ nav.nav('chcr') }}
+<main id="content">
+    {% include "partials/o_header.njk" %}
+    {% import 'macros/committees.njk' as commit %}
+    <div id="committees">
+        {{ commit.gen_commit_svg("United Nations High Commissioner for Rufugees", "hcr.svg", "#8d4022") }}
+        <div id="committee-text">
+        <div class="cl-10">
+            <h1>United Nations High Commissioner for Rufugees</h1>
+            <h3>Agenda 1: Developing a sustainable framework to assist incoming asylum seekers and refugees</h3>
+            <h3>Agenda 2: The mid cycle review and follow up to the Global Action Plan to End Statelessness (2014-24) in order to address the statelessness of refugees globally.</h3>
+            <p>
+The United Nations High Commissioner For Refugees (UNHCR), created in the wake of the Second World War's tragedies in 1950, seeks to address the modern dimensions of the age-old refugee problem. It is mandated to aid refugees in their local reintegration, voluntary repatriation or resettlement in a third country.The United Nations High Commissioner For Refugees (UNHCR), created in the wake of the Second World War's tragedies in 1950, seeks to address the modern dimensions of the age-old refugee problem. It is mandated to aid refugees in their local reintegration, voluntary repatriation or resettlement in a third country.
+            </p>
+        </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
