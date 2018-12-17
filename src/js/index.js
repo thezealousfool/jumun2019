@@ -26,6 +26,19 @@ function shownav() {
     cast.classList.add('show');
 }
 
+function lazyLoadImages() {
+    const lazyImages = document.getElementsByClassName('lazy');
+    for(var i=0; i<lazyImages.length; ++i) {
+        const oldImg = lazyImages[i];
+        const newImg = new Image();
+        newImg.onload = function() {
+            oldImg.parentNode.insertBefore(newImg, oldImg);
+            oldImg.style.opacity = '0';
+        }
+        newImg.src = oldImg.dataset.src;
+    }
+}
+
 var country_maps = {
     aippm: {
         head: 'Portfolio',
@@ -975,6 +988,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (form1 !== undefined) {
         form1.style.display = 'block';
     }
+    lazyLoadImages();
 });
 
 function send_notif(type, message) {

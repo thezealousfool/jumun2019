@@ -6,20 +6,16 @@
 {% import 'macros/nav.njk' as nav %}
 {{ nav.nav('h') }}
 <main id="content">
-    <header id="index-header">
+    <header class="full-width" id="index-header">
+        <img class="lazy" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAtAC0AAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeADADASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAwIEAAEF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEDAv/aAAwDAQACEAMQAAAB8lTWVtE6Jm8IsNMvo4ork5RB6+g//8QAGxAAAwEBAQEBAAAAAAAAAAAAAAECERIDISL/2gAIAQEAAQUCQqPL9P0fLdNjF9IS6SkpSVm6TEjzJfEXSuFyUkLzxucJvqqrKU6OdP/EABkRAQACAwAAAAAAAAAAAAAAAAAQERIhMf/aAAgBAwEBPwFWo4yU/8QAGBEAAwEBAAAAAAAAAAAAAAAAABESECH/2gAIAQIBAT8BH3GySj//xAAdEAABBAMBAQAAAAAAAAAAAAAAARAhMRESIiBB/9oACAEBAAY/AmrzNHB2Q30hCCVKyUW2q0aohmm//8QAHhAAAwACAgMBAAAAAAAAAAAAAAERITFBURBhcZH/2gAIAQEAAT8hTGRqIdyRg0vEJgeuhhCjbr2JxozN4D9BzdE4h9F5GeTESllH9DvkNUt2O3dhikI1hFUfgfauj//aAAwDAQACAAMAAAAQgXbwQn//xAAZEQACAwEAAAAAAAAAAAAAAAAAEQEhQTH/2gAIAQMBAT8QpUaErRSOhpP/xAAZEQACAwEAAAAAAAAAAAAAAAAAARFBYTH/2gAIAQIBAT8QelNCwaiPbIo//8QAHRABAAIDAAMBAAAAAAAAAAAAAQARITFBUWFxof/aAAgBAQABPxBgdQ+nJFgB0g0m3Nw2nBEcNwKv1AD6TmFGXA6gHR1GHaMCB9MJl++UVJLbSQgkLZRyF1lekCtxWrcKgYivIi0y2FNxeRahYNwKMCfon//Z" data-src="/img/cover.jpg" alt="Model United Nations">
+        <div id="img-cover"></div>
         <div>
             <h2>Jadavpur University</h2>
             <h1>Model United Nations</h1>
             <h2 style="text-align: right;">2019</h2>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 10">
-            <defs>
-                <linearGradient id="g1" x1="20%" y1="100%" x2="80%" y2="0%">
-                    <stop offset="0%" style="stop-color:#0563b2;stop-opacity:1" />
-                    <stop offset="80%" style="stop-color:#f62c42;stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <use xlink:href="/img/logo.svg#logo" fill="url(#g1)"/>
+            <use xlink:href="/img/logo.svg#logo" fill="#fff"/>
         </svg>
     </header>
     <section>

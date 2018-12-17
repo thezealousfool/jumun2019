@@ -3,24 +3,48 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 3em;
+    position: relative;
+    min-height: 40vh;
+    color: white;
+    padding-top: 2em;
+    padding-bottom: 2em;
 
     h1,h2 {
-        font-weight: 300;
         text-transform: uppercase;
         margin: 0;
     }
     >div {
+        z-index: 2;
         display: inline-block;
     }
     h1 {
+        font-weight: 400;
         font-size: 4vw;
     }
     h2 {
+        font-weight: 300;
         font-size: 2.5vw;
     }
     svg {
+        z-index: 2;
         height: 20vw;
+    }
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    #img-cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #262626;
+        opacity: 0.6;
     }
     @media screen and (max-width: 1000px) {
         flex-direction: column-reverse;
