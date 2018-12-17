@@ -36,6 +36,19 @@
                 font-size: 1.1em;
             }
         }
+        >div {
+            width: 50px;
+            height: 5px;
+            position: absolute;
+            right: 1.5em;
+            bottom: 1em;
+            @media screen and (max-width: 750px), screen and (min-width: 870px) and (max-width: 1024px) {
+                bottom: 0.6em;
+            }
+            @media screen and (max-width: 500px) {
+                right: 1.1em;
+            }
+        }
     }
     svg {
         width: 100%;

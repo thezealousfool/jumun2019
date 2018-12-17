@@ -10,6 +10,7 @@
     <div class="commit-card">
         {{ gen_commit_svg(name, img, color) }}
         <h2>{{name | safe}}</h2>
+        <div style="background-color: {{color}};"></div>
     </div>
 </a>
 {% endmacro %}
