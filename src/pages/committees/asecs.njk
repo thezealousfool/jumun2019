@@ -1,15 +1,15 @@
 {% extends 'layout.njk' %}
 
-{% block title %}JUMUN 2019 | ASCS{% endblock %}
+{% block title %}JUMUN 2019 | ASECS{% endblock %}
 
 {% block content %}
 {% import 'macros/nav.njk' as nav %}
-{{ nav.nav('cascs') }}
+{{ nav.nav('casecs') }}
 <main id="content">
     {% include "partials/o_header.njk" %}
     {% import 'macros/committees.njk' as commit %}
     <div id="committees">
-        {{ commit.gen_commit_svg("Asian Security and Cooperation Summit", "ascs.svg", "#a87b2a") }}
+        {{ commit.gen_commit_svg("Asian Security and Cooperation Summit", "asecs.svg", "#a87b2a") }}
         <div id="committee-text">
         <div class="cl-10">
             <h1>Asian Security and Cooperation Summit</h1>
