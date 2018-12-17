@@ -1,42 +1,48 @@
 {% macro nav(name='h') %}
 {% set nav_active_class = 'nav-active' %}
 <nav id="nav">
-    <li><a {% if name == 'h' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/"{% endif %}>Home</a></li>
-    <li id="abt-ul">
-        <a href="javascript:void(0);" onclick="expand('abt-ul')">About</a>
-        <ul>
-            <li><a {% if name == 'aj2' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/about/jumun2019"{% endif %}>JUMUN 2019</a></li>
-            <li><a {% if name == 'ape' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/about/past-editions"{% endif %}>Past Editions</a></li>
-            <li><a {% if name == 'aoc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Organising Committee</a></li>
-            <li><a {% if name == 'ajr' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/about/jumun-review"{% endif %}>JUMUN review</a></li>
-        </ul>
-    </li>
-    <li id="comit-ul">
-        <a href="javascript:void(0);" onclick="expand('comit-ul')">Committees</a>
-        <ul>
-            <li><a {% if name == 'cdisec' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/disec"{% endif %}>DISEC</a></li>
-            <li><a {% if name == 'cip' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/ip"{% endif %}>IP</a></li>
-            <li><a {% if name == 'caippm' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/aippm"{% endif %}>AIPPM</a></li>
-            <li><a {% if name == 'csfc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/sfc"{% endif %}>SFC</a></li>
-            <li><a {% if name == 'chcr' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/hcr"{% endif %}>HCR</a></li>
-            <li><a {% if name == 'cunsc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/unsc"{% endif %}>UNSC</a></li>
-            <li><a {% if name == 'cctad' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/ctad"{% endif %}>CTAD</a></li>
-            <li><a {% if name == 'cascs' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/ascs"{% endif %}>ASCS</a></li>
-        </ul>
-    </li>
-    <li><a {% if name == 'mat' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/matrices"{% endif %}>Matrices</a></li>
-    <li><a {% if name == 'sg' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Study Guides</a></li>
-    <li><a {% if name == 'ltm' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Learn to MUN</a></li>
-    <li><a {% if name == 'apply' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/apply"{% endif %}>Apply</a></li>
-    <li id="pay-ul">
-        <a href="javascript:void(0);" onclick="expand('pay-ul')">Payment</a>
-        <ul>
-            <li><a {% if name == 'pon' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Online Payment</a></li>
-            <li><a {% if name == 'poff' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Offline Payment</a></li>
-        </ul>
-    </li>
-    <li><a {% if name == 'allot' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Allotments</a></li>
-    <li><a {% if name == 'ct' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Contact</a></li>
+    <ul>
+        <li><a {% if name == 'h' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/"{% endif %}>Home</a></li>
+        <li id="abt-ul">
+            <a href="javascript:void(0);" onclick="expand('abt-ul')">About</a>
+            <ul>
+                <li><a {% if name == 'aj2' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/about/jumun2019"{% endif %}>JUMUN 2019</a></li>
+                <li><a {% if name == 'ape' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/about/past-editions"{% endif %}>Past Editions</a></li>
+                <li><a {% if name == 'aoc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Organising Committee</a></li>
+                <li><a {% if name == 'ajr' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/about/jumun-review"{% endif %}>JUMUN review</a></li>
+            </ul>
+        </li>
+        <li id="comit-ul">
+            <a href="javascript:void(0);" onclick="expand('comit-ul')">Committees</a>
+            <ul>
+                <li><a {% if name == 'cdisec' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/disec"{% endif %}>DISEC</a></li>
+                <li><a {% if name == 'cip' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/ip"{% endif %}>IP</a></li>
+                <li><a {% if name == 'caippm' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/aippm"{% endif %}>AIPPM</a></li>
+                <li><a {% if name == 'csfc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/sfc"{% endif %}>SFC</a></li>
+                <li><a {% if name == 'chcr' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/hcr"{% endif %}>HCR</a></li>
+                <li><a {% if name == 'cunsc' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/unsc"{% endif %}>UNSC</a></li>
+                <li><a {% if name == 'cctad' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/ctad"{% endif %}>CTAD</a></li>
+                <li><a {% if name == 'cascs' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/committees/ascs"{% endif %}>ASCS</a></li>
+            </ul>
+        </li>
+        <li><a {% if name == 'mat' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/matrices"{% endif %}>Matrices</a></li>
+        <li><a {% if name == 'sg' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Study Guides</a></li>
+        <li><a {% if name == 'ltm' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Learn to MUN</a></li>
+        <li><a {% if name == 'apply' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href="/apply"{% endif %}>Apply</a></li>
+        <li id="pay-ul">
+            <a href="javascript:void(0);" onclick="expand('pay-ul')">Payment</a>
+            <ul>
+                <li><a {% if name == 'pon' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Online Payment</a></li>
+                <li><a {% if name == 'poff' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Offline Payment</a></li>
+            </ul>
+        </li>
+        <li><a {% if name == 'allot' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Allotments</a></li>
+        <li><a {% if name == 'ct' %}id="{{nav_active_class}}" href="javascript:void(0);"{% else %}href=""{% endif %}>Contact</a></li>
+    </ul>
+    <div style="margin: 1rem;">
+        <p>Debating Society, <br> Jadavpur University <br> 2018-19 All rights reserved.</p>
+        <p>Designed and developed by <a class="underline" href="mailto:vivek@vivekroy.com">Vivek Roy</a></p>
+    </div>
 </nav>
 <div id="nav-undercast" onclick="hidenav()"></div>
 <button id="nav-btn" class="btn" onclick="shownav()">
