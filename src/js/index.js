@@ -10,6 +10,22 @@ var country_req = {
 };
 const firbase_base = "https://jumun2019-9c834.firebaseio.com/";
 
+function hidenav() {
+    console.log('Hiding nav');
+    const nav = document.getElementById('nav');
+    const cast = document.getElementById('nav-undercast');
+    nav.style.transform = '';
+    cast.classList.remove('show');
+}
+
+function shownav() {
+    console.log('Showing nav');
+    const nav = document.getElementById('nav');
+    const cast = document.getElementById('nav-undercast');
+    nav.style.transform = 'translateX(0)';
+    cast.classList.add('show');
+}
+
 var country_maps = {
     aippm: {
         head: 'Portfolio',

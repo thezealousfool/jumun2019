@@ -9,6 +9,7 @@
     box-shadow: 0 0 15px 2px #2d2d2d;
     z-index: 99;
     will-change: transform;
+    transition: transform 0.4s ease-in-out;
 
     * {
         color: white;
@@ -42,5 +43,40 @@
     }
     @media screen and (max-width: 870px) {
         transform: translateX(-105%);
+    }
+}
+
+#nav-btn {
+    position: fixed;
+    will-change: transform;
+    z-index: 90;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.3rem 0.6rem;
+
+    svg {
+        width: 24px;
+        position:relative;
+        top:.15em;
+    }
+    @media screen and (min-width: 870px) {
+        display: 'none';
+    }
+}
+
+#nav-undercast {
+    position: fixed;
+    will-change: transform;
+    width: 100%;
+    height: 100%;
+    background-color: #2d2d2d;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 90;
+
+    &.show {
+        visibility: visible;
+        opacity: 0.6;
     }
 }
