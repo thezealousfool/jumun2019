@@ -1027,8 +1027,8 @@ function validate_phone(p) {
     if (p === "") {
         send_notif("e", "Please enter a phone number");
         valid = false;
-    } else if (p.length !== 10) {
-        send_notif("e", "Please enter a 10 digit phone number");
+    } else if (!(p.length > 9 && p.length < 12)) {
+        send_notif("e", "Please enter a 10/11 digit phone number");
         valid = false;
     } else if (!/^\d+$/.test(p)) {
         send_notif("e", "Please enter a valid phone number");
