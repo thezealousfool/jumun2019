@@ -933,6 +933,7 @@ function send_firebase() {
             phone: deleg1_info.phone,
             institution: deleg1_info.inst,
             experience: deleg1_info.exp,
+            ambassador: deleg1_info.amba,
             preference1,
             preference2
         }, firbase_base+"single_deleg/"+preference1.committee+".json", function() { del_commit = true; check_done(); }, function() { del_commit = false; check_done(); });
@@ -944,6 +945,7 @@ function send_firebase() {
                 phone: deleg1_info.phone,
                 institution: deleg1_info.inst,
                 experience: deleg1_info.exp,
+                ambassador: deleg1_info.amba,
             },
             delegate2: {
                 name: deleg2_info.name,
@@ -951,6 +953,7 @@ function send_firebase() {
                 phone: deleg2_info.phone,
                 institution: deleg2_info.inst,
                 experience: deleg2_info.exp,
+                ambassador: deleg2_info.amba,
             },
             preference1,
             preference2
@@ -1073,6 +1076,14 @@ function validate_accom(o) {
     return true;
 }
 
+function validate_amba(o) {
+    if (o !== '' && !/^[a-zA-Z0-9]{7}$/.test(o)) {
+        send_notif('e', 'Please enter a valid campus ambassador code');
+        return false;
+    }
+    return true;
+}
+
 function swap_forms(form1, form2) {
     if (form1 === undefined || form2 === undefined)
         return;
@@ -1108,7 +1119,8 @@ function del1_info_submit() {
     const food = this_form["del_1_food"].value;
     const accom = this_form["del_1_accom"].value;
     const merch = this_form["del_1_merch"].value;
-    if (validate_name(name) && validate_email(email) && validate_phone(phone) && validate_inst(inst) && validate_food(food) && validate_accom(accom) && validate_merch(merch)) {
+    const amba = this_form["del_1_amba"].value;
+    if (validate_name(name) && validate_email(email) && validate_phone(phone) && validate_inst(inst) && validate_food(food) && validate_accom(accom) && validate_merch(merch) && validate_amba(amba)) {
         deleg1_info = {
             name,
             email,
@@ -1117,6 +1129,7 @@ function del1_info_submit() {
             exp: this_form["del_1_exp"].value,
             food,
             accom,
+            amba,
             merch };
         if (double_deleg) {
             swap_forms(this_form, document.forms['del2_info']);
@@ -1136,7 +1149,8 @@ function del2_info_submit() {
     const food = this_form["del_2_food"].value;
     const accom = this_form["del_2_accom"].value;
     const merch = this_form["del_2_merch"].value;
-    if (validate_name(name) && validate_email(email) && validate_phone(phone) && validate_inst(inst) && validate_food(food) && validate_accom(accom) && validate_merch(merch)) {
+    const amba = this_form["del_2_amba"].value;
+    if (validate_name(name) && validate_email(email) && validate_phone(phone) && validate_inst(inst) && validate_food(food) && validate_accom(accom) && validate_merch(merch) && validate_amba(amba)) {
         deleg2_info = {
             name,
             email,
@@ -1145,6 +1159,7 @@ function del2_info_submit() {
             exp: this_form["del_2_exp"].value,
             food,
             accom,
+            amba,
             merch };
         const next_form = document.forms['del_pref1'];
         const next_commit = next_form['pref1_committee'];
