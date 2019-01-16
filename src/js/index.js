@@ -934,6 +934,7 @@ function send_firebase() {
             institution: deleg1_info.inst,
             experience: deleg1_info.exp,
             ambassador: deleg1_info.amba,
+            referrer: deleg1_info.ref,
             preference1,
             preference2
         }, firbase_base+"single_deleg/"+preference1.committee+".json", function() { del_commit = true; check_done(); }, function() { del_commit = false; check_done(); });
@@ -946,6 +947,7 @@ function send_firebase() {
                 institution: deleg1_info.inst,
                 experience: deleg1_info.exp,
                 ambassador: deleg1_info.amba,
+                referrer: deleg1_info.ref,
             },
             delegate2: {
                 name: deleg2_info.name,
@@ -954,6 +956,7 @@ function send_firebase() {
                 institution: deleg2_info.inst,
                 experience: deleg2_info.exp,
                 ambassador: deleg2_info.amba,
+                referrer: deleg2_info.ref,
             },
             preference1,
             preference2
@@ -1120,6 +1123,7 @@ function del1_info_submit() {
     const accom = this_form["del_1_accom"].value;
     const merch = this_form["del_1_merch"].value;
     const amba = this_form["del_1_amba"].value;
+    const ref = this_form["del_1_ref"].value;
     if (validate_name(name) && validate_email(email) && validate_phone(phone) && validate_inst(inst) && validate_food(food) && validate_accom(accom) && validate_merch(merch) && validate_amba(amba)) {
         deleg1_info = {
             name,
@@ -1130,6 +1134,7 @@ function del1_info_submit() {
             food,
             accom,
             amba,
+            ref,
             merch };
         if (double_deleg) {
             swap_forms(this_form, document.forms['del2_info']);
@@ -1150,6 +1155,7 @@ function del2_info_submit() {
     const accom = this_form["del_2_accom"].value;
     const merch = this_form["del_2_merch"].value;
     const amba = this_form["del_2_amba"].value;
+    const ref = this_form["del_2_ref"].value;
     if (validate_name(name) && validate_email(email) && validate_phone(phone) && validate_inst(inst) && validate_food(food) && validate_accom(accom) && validate_merch(merch) && validate_amba(amba)) {
         deleg2_info = {
             name,
@@ -1160,6 +1166,7 @@ function del2_info_submit() {
             food,
             accom,
             amba,
+            ref,
             merch };
         const next_form = document.forms['del_pref1'];
         const next_commit = next_form['pref1_committee'];
