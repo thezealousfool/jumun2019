@@ -8,7 +8,7 @@ var country_req = {
     pref1: true,
     pref2: true,
 };
-const firbase_base = "https://jumun2019-9c834.firebaseio.com/";
+const firbase_base = "https://jumun2019-9c834.firebaseio.com/round2/";
 
 function hidenav() {
     console.log('Hiding nav');
