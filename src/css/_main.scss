@@ -18,7 +18,7 @@ a {
     text-decoration: none;
 }
 
-#content {
+.content {
     margin-left: 17rem;
     padding: 1.5em;
 
@@ -31,6 +31,10 @@ a {
     position: relative;
     width: calc(100% + 3em);
     left: -1.5em;
+    @media screen and (min-width: 870px) {
+        width: calc(100vw - 12em);
+        left: calc(((100vw - 12em) - 100%) / -2);
+    }
 }
 
  section {
