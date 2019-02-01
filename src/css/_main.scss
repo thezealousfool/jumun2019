@@ -38,29 +38,32 @@ a {
 }
 
  section {
-     margin: 4em 0 0 0;
-     h1 {
-         font-size: 2em;
-     }
+    margin: 3em 0 0 0;
+    h1 {
+        font-size: 2em;
+    }
+    @media screen and (max-width: 500px) {
+        margin: 1em 0 0 0;
+    }
  }
 
  .btn {
-     background-color: #561498;
+    background-color: #561498;
     font-weight: 400;
     display: block;
-     color: white;
-     text-transform: uppercase;
-     padding: 0.8em 1.5em;
-     border: transparent;
-     border-radius: 3px;
-     outline: none;
-     appearance: none;
-     -webkit-appearance: none;
-     position: relative;
+    color: white;
+    text-transform: uppercase;
+    padding: 0.8em 1.5em;
+    border: transparent;
+    border-radius: 3px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
  }
 
  .underline {
-     border-bottom: 1px solid;
+    border-bottom: 1px solid;
  }
 
 input[type="text"], textarea, select {
