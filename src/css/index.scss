@@ -85,6 +85,9 @@
         flex-wrap: wrap;
         justify-content: center;
         margin: 1em 0;
+        article {
+            flex: 1;
+        }
     }
     article a {
         border-radius: 10px;
@@ -179,6 +182,10 @@
             text-align: right;
             font-style: italic;
         }
+    }
+    .post-img-full {
+        width: 100%;
+        margin-bottom: 1.5rem;
     }
     .post-img {
         width: 100%;
