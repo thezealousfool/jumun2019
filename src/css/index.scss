@@ -87,6 +87,12 @@
         margin: 1em 0;
         article {
             flex: 1;
+            margin: 1rem;
+            @media screen and (max-width: 670px),
+                   screen and (min-width: 870px) and (max-width: 1200px) {
+                min-width: 300px;
+                max-width: 360px;
+            }
         }
     }
     article a {
@@ -96,7 +102,6 @@
         flex-direction: row;
         box-shadow: 0 0 6px rgba(0,0,0,0.16), 3px 6px 8px rgba(0,0,0,0.23);
         transition: box-shadow 0.2s ease-out;
-        margin: 1rem;
         &:hover {
             box-shadow: 0 0 6px rgba(0,0,0,0.26), 6px 9px 20px rgba(0,0,0,0.33);
         }
@@ -139,7 +144,6 @@
         @media screen and (max-width: 670px),
                screen and (min-width: 870px) and (max-width: 1200px) {
             flex-direction: column;
-            max-width: 360px;
             .img {
                 width: 100%;
                 height: 80vw;
