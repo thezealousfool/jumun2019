@@ -131,9 +131,13 @@
         h2 {
             margin-bottom: 0.2em;
         }
-        .date {
+        .date, .author {
             font-size: 0.8em;
             margin-bottom: 1em;
+        }
+        .author {
+            font-style: italic;
+            margin-bottom: 0.5em;
         }
         @media screen and (max-width: 870px) {
             .img {
@@ -219,10 +223,14 @@
         }
     }
     .title {
-        margin-bottom: 0.5em;
+        margin-bottom: 0.35em;
     }
     .date {
         margin-bottom: 2em;
+    }
+    .author {
+        font-style: italic;
+        margin-bottom: 1em;
     }
 }
 
