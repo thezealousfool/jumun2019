@@ -1,0 +1,68 @@
+{% extends 'layout.njk' %}
+
+{% block title %}JUMUN 2019 | Payment{% endblock %}
+
+{% block content %}
+{% import 'macros/nav.njk' as nav %}
+{{ nav.nav('pay') }}
+<main class="content">
+    {% include "partials/o_header.njk" %}
+    <section class="cl-10">
+        <h2>Payment options:</h2>
+        <ol>
+            <li>
+                <p>If you would like to pay through our online,</p>
+                <p>Download the Fidl app from the Play Store and fill in your contact information. An OTP will be generated and your account will be created. After logging in, click on 'JUMUN 2019' andsearch for your name and allotment. Once you see that, make your payment.</p>
+                <p>App store: <a class="underline" href="https://itunes.apple.com/in/app/fidl/id1441991034?mt=8">https://itunes.apple.com<wbr>/in<wbr>/app<wbr>/fidl<wbr>/id1441991034<wbr>?mt=8</a></p>
+                <p>Play Store: <a class="underline" href="https://play.google.com/store/apps/details?id=vision.google.com.unicesscustomer&hl=en">https://play.google.com/<wbr>store/<wbr>apps/<wbr>details?<wbr>id=vision.<wbr>google.<wbr>com.<wbr>unicesscustomer<wbr>&hl=en</a></p>
+            </li>
+            <li>
+                <p>If you would like to pay through direct bank transfer,</p>
+                <p>Bank Account Details:</p>
+                <table cellspacing="10">
+                    <tr>
+                        <td>Account Holder's Name-</td>
+                        <td>Sumedha Bose</td>
+                    </tr>
+                    <tr>
+                        <td>Bank Account Number-</td>
+                        <td>37495977465</td>
+                    </tr>
+                    <tr>
+                        <td>IFSC CODE-</td>
+                        <td>SBIN0000093</td>
+                    </tr>
+                </table>
+                <p>Once you have made the payment, you are requested to send a scanned copy of the acknowledgement receipt to <a href="delegateaffairs@jumun.org">delegateaffairs@jumun.org</a> with the following details:</p>
+                <ol type="a">
+                    <li>Name of Depositor</li>
+                    <li>Date of Deposit</li>
+                    <li>Current Allotment</li>
+                    <li>Account Number (only in case it is a bank to bank transfer). Please ensure that you put the subject of the email as 'Confirmation of Participation'.</li>
+                </ol>
+            </li>
+            <li>
+                <p>For paying offline, contact any of the following numbers:</p>
+                <table cellspacing="10">
+                    <tr>
+                        <td>Mushfique Khan-</td>
+                        <td>9007847986</td>
+                    </tr>
+                    <tr>
+                        <td>Rasmika Ghosh-</td>
+                        <td>9830327414</td>
+                    </tr>
+                    <tr>
+                        <td>Shubhangi Dutta-</td>
+                        <td>9163098278</td>
+                    </tr>
+                    <tr>
+                        <td>Ritika Dasgupta-</td>
+                        <td>9674291331</td>
+                    </tr>
+                </table>
+            </li>
+        </ol>
+    </section>
+</main>
+{% endblock %}
